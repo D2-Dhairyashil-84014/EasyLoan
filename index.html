@@ -1,15 +1,117 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-		<meta name="generator" content="Hostinger Horizons" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-		<title>Hostinger Horizons</title>
-	</head>
-	<body>
-		<div id="root"></div>
-		<script type="module" src="/src/main.jsx"></script>
-	</body>
-</html>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyLoanNow</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    header {
+      background: #0a66c2;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .filter-bar {
+      padding: 10px;
+      text-align: center;
+      background: #fff;
+    }
+    .filter-bar select, .filter-bar input {
+      padding: 10px;
+      margin: 5px;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: left;
+    }
+    .card img {
+      width: 100px;
+      height: auto;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+    .card p {
+      margin: 5px 0;
+    }
+    .card button {
+      background: #0a66c2;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .card button:hover {
+      background: #084c9e;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EasyLoanNow</h1>
+    <p>Compare and Apply for Loans Instantly</p>
+  </header>  <div class="filter-bar">
+    <label for="userType">User Type:</label>
+    <select id="userType" onchange="filterCards()">
+      <option value="all">All</option>
+      <option value="salaried">Salaried</option>
+      <option value="self-employed">Self-Employed</option>
+    </select><input type="text" id="searchInput" placeholder="Search lenders..." oninput="filterCards()" />
+
+  </div>  <div class="cards" id="loanCards">
+    <!-- Sample Card -->
+    <div class="card" data-user="salaried">
+      <img src="assets/hdfc.png" alt="HDFC" />
+      <h3>HDFC Personal Loan</h3>
+      <p><strong>Eligibility:</strong> Salary ₹20K+, Age 21–60</p>
+      <p><strong>Interest:</strong> 10.5% p.a.</p>
+      <p><strong>Loan Amount:</strong> ₹50K–20L</p>
+      <button onclick="window.open('https://your-referral-link.com/hdfc')">Apply Now</button>
+    </div><div class="card" data-user="self-employed">
+  <img src="assets/bajaj.png" alt="Bajaj Finance" />
+  <h3>Bajaj Business Loan</h3>
+  <p><strong>Eligibility:</strong> Business ITR ₹2L+, 2 Years Vintage</p>
+  <p><strong>Interest:</strong> 14% p.a.</p>
+  <p><strong>Loan Amount:</strong> ₹1L–30L</p>
+  <button onclick="window.open('https://your-referral-link.com/bajaj')">Apply Now</button>
+</div>
+<!-- Add more cards similarly -->
+
+  </div>  <script>
+    function filterCards() {
+      const userType = document.getElementById('userType').value;
+      const searchText = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const matchesUser = userType === 'all' || card.dataset.user === userType;
+        const matchesSearch = card.innerText.toLowerCase().includes(searchText);
+
+        if (matchesUser && matchesSearch) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script></body>
+	</html>
