@@ -2,46 +2,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EasyLoanNow - Compare Loan Offers</title>
+  <title>EasyLoanNow</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
-    header { background-color: #0074d9; color: white; padding: 1rem; text-align: center; }
-    .container { padding: 1rem; max-width: 1000px; margin: auto; }
-    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem; }
-    .card { background: white; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .card img { max-width: 150px; }
-    .card h2 { margin: 0.5rem 0; }
-    .card p { margin: 0.3rem 0; }
-    button { background-color: #0074d9; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; }
-    button:hover { background-color: #005fa3; }
-    input, select { padding: 0.5rem; border-radius: 4px; border: 1px solid #ccc; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #0b3d91;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .card img {
+      max-width: 150px;
+    }
+    .apply-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #0b3d91;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .section-title {
+      margin-top: 40px;
+      font-size: 24px;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>EasyLoanNow - Compare Loan Offers</h1>
+    <h1>EasyLoanNow</h1>
   </header>
   <div class="container">
     <div class="filters">
-      <select id="userTypeFilter">
-        <option value="all">All Users</option>
-        <option value="salaried">Salaried</option>
-        <option value="self-employed">Self-Employed</option>
-        <option value="student">Student</option>
+      <select id="userType">
+        <option value="">All</option>
+        <option value="Salaried">Salaried</option>
+        <option value="Self-Employed">Self-Employed</option>
+        <option value="Student">Student</option>
       </select>
-      <input type="text" id="searchInput" placeholder="Search loan partners..." />
-    </div>
-    <div id="cardsContainer"></div>
+      <input type="text" id="search" placeholder="Search by name..." />
+    </div><div id="loanCards"></div>
+
+<h2 class="section-title">Credit Cards</h2>
+<div id="creditCards"></div>
+
   </div>  <script>
     const loanData = [
       {
         name: "KreditBee",
         image: "assets/kreditbee.png",
-        eligibility: ["salaried", "self-employed"],
-        interest: "12% to 28.5% p.a.",
-        amount: "₹6,000 to ₹10,00,000",
-        link: "https://www.kreditbee.in/dl?kb=referrer&id=DHARRP0Z9",
-        description: `KreditBee is an online personal loan app trusted by over 70 million Indians. Get a quick personal loan at attractive interest rates, directly in your bank account. Whether salaried or self-employed, get easy funds - anytime, anywhere.<br><br>
+        eligibility: ["Salaried", "Self-Employed"],
+        description: `KreditBee is an online personal loan app trusted by over 70 million Indians. Get a quick personal loan at attractive interest rates, directly in your bank account.<br><br>
         ● Online personal loans from ₹6,000 to ₹10,00,000<br>
         ● Interest rates - 12% to 28.5% p.a.<br>
         ● Tenures - 6 to 60 months<br>
@@ -61,85 +94,107 @@
         Kisetsu Saison Finance (India) Pvt. Ltd<br>
         Mirae Asset Financial Services (India) Pvt. Ltd<br>
         Tata Capital Ltd<br>
-        Oxyzo Financial Services Ltd`
+        Oxyzo Financial Services Ltd` ,
+        link: "https://www.kreditbee.in/dl?kb=referrer&id=DHARRP0Z9"
       },
       {
         name: "mPokket",
         image: "assets/mpokket.png",
-        eligibility: ["student", "salaried"],
-        interest: "Varies",
-        amount: "Up to ₹30,000",
-        link: "https://click.mpkt.to/4ZwB/pnv9b35v",
-        description: `mPokket provides instant loans up to ₹30,000 for college students and salaried professionals. Easy process and fast approvals.<br><br>
-        ✔ Students - Loans for college students<br>
-        ✔ Salaried Professionals - Loans for salaries above ₹9,000<br><br>
+        eligibility: ["Salaried", "Student"],
+        description: `mPokket offers instant personal loans up to ₹30,000. <br><br>
+        ✔ Students – Must be above 18 & have valid college ID<br>
+        ✔ Salaried – Minimum ₹9,000 take-home salary via bank/cheque<br><br>
         <strong>Documents Required:</strong><br>
-        ✔ College ID card (for students)<br>
-        ✔ Last 3 months Bank Statement, Salary Slip/Joining Letter (for salaried)<br>
-        ✔ Aadhaar Card, Driving license, Voter ID card<br>
+        ✔ College ID card for Students<br>
+        ✔ Last 3 months Bank Statement, Salary Slip/Joining Letter for Salaried<br>
+        ✔ Aadhaar Card, Driving license, Voter ID<br>
         ✔ PAN Card<br>
-        ✔ KYC Details`
+        ✔ KYC Details` ,
+        link: "https://click.mpkt.to/4ZwB/pnv9b35v"
       },
       {
         name: "OLYV",
         image: "assets/olyv.png",
-        eligibility: ["salaried", "self-employed"],
-        interest: "Starting from 1.5% per month",
-        amount: "Up to ₹5,00,000",
-        link: "https://smartcoin.page.link/nTcmvHMWRj4v2tiz5",
-        description: `Why OLYV?<br>
-        ✅ Instant Loans<br>
-        ✅ Credit Health Insights<br>
-        ✅ Digital Gold Savings<br>
-        ✅ Exclusive Subscription Services<br><br>
+        eligibility: ["Salaried", "Self-Employed"],
+        description: `Instant Loans, Credit Health Insights, Digital Gold Savings, and Exclusive Subscription Services.<br><br>
+        → Instant Personal Loans up to ₹5 lakh<br>
         → Trusted by ~3 Cr Indians<br>
         → RBI registered lenders<br>
-        → 100% digital loan application journey<br>
-        → No collateral or paperwork<br>
+        → 100% digital loan application<br>
         → Tenure: 2 to 24 months<br>
-        → Flexi EMIs & interest starting at 1.5% per month<br>
+        → Interest starting at 1.5% per month<br>
         → APR range – 30 to 90%<br><br>
-        <strong>Our Lending Partners:</strong><br>
-        • Upmove Capital Private Limited<br>
-        • Vivriti Capital Private Limited<br>
-        • Northern Arc Capital Limited<br>
-        • Incred Financial Services Limited<br>
-        • PayU Finance India Private Limited<br>
-        • Poonawalla Fincorp`
+        <strong>Lending Partners:</strong><br>
+        Upmove Capital Pvt. Ltd<br>
+        Vivriti Capital Pvt. Ltd<br>
+        Northern Arc Capital Ltd<br>
+        Incred Financial Services Ltd<br>
+        PayU Finance India Pvt. Ltd<br>
+        Poonawalla Fincorp`,
+        link: "https://smartcoin.page.link/nTcmvHMWRj4v2tiz5"
+      }
+    ];
+
+    const creditCardData = [
+      {
+        name: "Indus Easy Credit Card",
+        description: `💳 Earn attractive reward points & cashback<br>
+        🔁 Reward points never expire<br>
+        🆓 Lifetime free card<br>
+        🛫 Complimentary Airport Lounge Access`,
+        link: "https://t.co/YUO2qR7oPB"
+      },
+      {
+        name: "RBL ShopRite Credit Card",
+        description: `✔️ Lifetime free credit card<br>
+        ✔️ Welcome Benefit of 2,000 Reward points<br>
+        ✔️ Fuel surcharge waiver up to ₹100/month<br>
+        ✔️ 20X reward points on grocery<br>
+        ✔️ 10% off on BookMyShow (up to ₹100)` ,
+        link: "https://t.co/MW4Lk3cc1v"
       }
     ];
 
     function renderCards() {
-      const container = document.getElementById("cardsContainer");
-      const userType = document.getElementById("userTypeFilter").value;
-      const search = document.getElementById("searchInput").value.toLowerCase();
+      const container = document.getElementById("loanCards");
       container.innerHTML = "";
+      const type = document.getElementById("userType").value;
+      const keyword = document.getElementById("search").value.toLowerCase();
 
-      const filteredData = loanData.filter(item => {
-        const matchUser = userType === "all" || item.eligibility.includes(userType);
-        const matchSearch = item.name.toLowerCase().includes(search);
-        return matchUser && matchSearch;
+      const filtered = loanData.filter(card => {
+        const matchesType = type ? card.eligibility.includes(type) : true;
+        const matchesKeyword = card.name.toLowerCase().includes(keyword);
+        return matchesType && matchesKeyword;
       });
 
-      filteredData.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <img src="${item.image}" alt="${item.name}" />
-          <h2>${item.name}</h2>
-          <p><strong>Eligibility:</strong> ${item.eligibility.join(", ")}</p>
-          <p><strong>Interest:</strong> ${item.interest}</p>
-          <p><strong>Loan Amount:</strong> ${item.amount}</p>
-          <p>${item.description}</p>
-          <button onclick="window.open('${item.link}', '_blank')">Apply Now</button>
-        `;
-        container.appendChild(card);
+      filtered.forEach(card => {
+        container.innerHTML += `
+          <div class="card">
+            <h3>${card.name}</h3>
+            <img src="${card.image}" alt="${card.name}" />
+            <p>${card.description}</p>
+            <a class="apply-button" href="${card.link}" target="_blank">Apply Now</a>
+          </div>`;
       });
     }
 
-    document.getElementById("userTypeFilter").addEventListener("change", renderCards);
-    document.getElementById("searchInput").addEventListener("input", renderCards);
+    function renderCreditCards() {
+      const container = document.getElementById("creditCards");
+      container.innerHTML = "";
+      creditCardData.forEach(card => {
+        container.innerHTML += `
+          <div class="card">
+            <h3>${card.name}</h3>
+            <p>${card.description}</p>
+            <a class="apply-button" href="${card.link}" target="_blank">Apply Now</a>
+          </div>`;
+      });
+    }
+
+    document.getElementById("userType").addEventListener("change", renderCards);
+    document.getElementById("search").addEventListener("input", renderCards);
 
     renderCards();
+    renderCreditCards();
   </script></body>
 </html>
