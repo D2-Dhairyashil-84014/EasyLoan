@@ -3,17 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EasyLoanNow – Instant Personal Loans & Credit Cards</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Compare and apply for instant personal loans and credit cards from trusted providers. Quick approvals for salaried, self-employed & students.">
-  <meta name="keywords" content="personal loan, instant loan, credit cards, EasyLoanNow, loan app India, apply credit card online, salaried loan, student loan">
-  <meta name="author" content="EasyLoanNow Team">
-
-  <!-- AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2112428082946902"
-    crossorigin="anonymous"></script>
-
+  <title>EasyLoanNow</title>
+  <meta name="description" content="Compare and apply for instant personal loans and lifetime free credit cards. Fast approvals, trusted lenders, flexible terms.">
+  <meta name="keywords" content="loan, personal loan, instant loan, credit card, free credit card, online loan app, EasyLoanNow">
+  <meta name="author" content="EasyLoanNow">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2112428082946902" crossorigin="anonymous"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -30,11 +24,33 @@
     .container {
       padding: 20px;
     }
+    .toggle-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .toggle-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 20px;
+      background-color: #e0e0e0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .toggle-buttons button.active {
+      background-color: #0b3d91;
+      color: white;
+    }
     .filters {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
+      gap: 10px;
       margin-bottom: 20px;
+    }
+    .filters select, .filters input {
+      padding: 8px;
+      font-size: 16px;
     }
     .card {
       background: #fff;
@@ -45,7 +61,6 @@
     }
     .card img {
       max-width: 150px;
-      margin-top: 10px;
     }
     .apply-button {
       display: inline-block;
@@ -56,30 +71,29 @@
       text-decoration: none;
       border-radius: 5px;
     }
-    .section-title {
-      margin-top: 40px;
-      font-size: 24px;
-    }
     footer {
       text-align: center;
       padding: 20px;
-      background: #e0e0e0;
-      color: #333;
+      background: #f0f0f0;
       margin-top: 40px;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>EasyLoanNow</h1>
-    <p>Find the best instant personal loans and credit card offers</p>
   </header>
 
   <div class="container">
-    <div class="filters">
+
+    <div class="toggle-buttons">
+      <button id="loanBtn" class="active">Loans</button>
+      <button id="cardBtn">Credit Cards</button>
+    </div>
+
+    <div id="loanFilters" class="filters">
       <select id="userType">
-        <option value="">All</option>
+        <option value="">All Types</option>
         <option value="Salaried">Salaried</option>
         <option value="Self-Employed">Self-Employed</option>
         <option value="Student">Student</option>
@@ -88,14 +102,13 @@
     </div>
 
     <div id="loanCards"></div>
+    <div id="creditCards" style="display:none;"></div>
 
-    <h2 class="section-title">Credit Cards</h2>
-    <div id="creditCards"></div>
+    <footer>
+      &copy; 2025 EasyLoanNow. All rights reserved.
+    </footer>
+
   </div>
-
-  <footer>
-    &copy; 2025 EasyLoanNow. All rights reserved.
-  </footer>
 
   <script>
     const loanData = [
@@ -103,54 +116,35 @@
         name: "KreditBee",
         image: "assets/kreditbee.png",
         eligibility: ["Salaried", "Self-Employed"],
-        description: `KreditBee is trusted by over 70 million Indians.<br><br>
-        ● Loans from ₹6,000 to ₹10,00,000<br>
-        ● Interest: 12% to 28.5% p.a.<br>
-        ● Tenure: 6–60 months<br>
-        ● APR: 17% to 50%<br>
-        <strong>Lending Partners:</strong> KreditBee NBFC partners.`,
+        description: `KreditBee is an online personal loan app trusted by over 70 million Indians...`,
         link: "https://www.kreditbee.in/dl?kb=referrer&id=DHARRP0Z9"
       },
       {
         name: "mPokket",
         image: "assets/mpokket.png",
         eligibility: ["Salaried", "Student"],
-        description: `Instant loans up to ₹30,000.<br><br>
-        ● Students: College ID needed<br>
-        ● Salaried: ₹9,000+ monthly income<br>
-        ● PAN + Aadhaar + KYC required`,
+        description: `mPokket offers instant personal loans up to ₹30,000...`,
         link: "https://click.mpkt.to/4ZwB/pnv9b35v"
       },
       {
         name: "OLYV",
         image: "assets/olyv.png",
         eligibility: ["Salaried", "Self-Employed"],
-        description: `Loans up to ₹5 lakh | 100% digital | APR: 30%–90%<br><br>
-        ● Interest: Starting 1.5% monthly<br>
-        ● Trusted by 3 Cr+ Indians<br>
-        <strong>Lending Partners:</strong> Upmove, Incred, PayU, Poonawalla`,
+        description: `Instant Loans, Credit Health Insights...`,
         link: "https://smartcoin.page.link/nTcmvHMWRj4v2tiz5"
       },
       {
         name: "True Balance",
         image: "assets/truebalance.png",
         eligibility: ["Salaried", "Self-Employed"],
-        description: `Digital loans from ₹1,000–₹2,00,000 for 6–12 months<br>
-        ● APR: 28.8% to 99.7%<br>
-        ● RBI-authorized wallet + UPI<br>
-        <strong>Lending Partners:</strong> True Credits, InCred, Oxyzo, etc.`,
+        description: `True Balance is a secure platform for lending, payments, and financial services...`,
         link: "https://kjkf8.app.goo.gl/aQPjS8mBjJ4Du37m7"
       },
       {
         name: "Pocketly",
         image: "assets/pocketly.png",
-        eligibility: ["Salaried", "Self-Employed", "Students"],
-        description: `Loans up to ₹50,000 instantly<br>
-        ● Tenure: 2–6 months<br>
-        ● Interest: 2%–3% per month<br>
-        ● APR: 30%–132%<br>
-        ● Processing fee: 0%–7.5% + GST<br>
-        <strong>NBFC Partner:</strong> Speel Finance Co. Pvt. Ltd.`,
+        eligibility: ["Salaried", "Student"],
+        description: `Get your funds in a jiffy with Pocketly's instant personal loan...`,
         link: "https://pocketly.page.link/o4ZA"
       }
     ];
@@ -158,23 +152,20 @@
     const creditCardData = [
       {
         name: "Indus Easy Credit Card",
-        description: `💳 Reward points + cashback<br>
-        🆓 Lifetime free<br>
-        🛫 Lounge access`,
+        description: `💳 Earn attractive reward points & cashback...`,
         link: "https://t.co/YUO2qR7oPB"
       },
       {
         name: "RBL ShopRite Credit Card",
-        description: `✔️ Lifetime free<br>
-        🎁 2,000 welcome points<br>
-        ⛽ Fuel waiver & 20X grocery rewards`,
+        description: `✔️ Lifetime free credit card...`,
         link: "https://t.co/MW4Lk3cc1v"
       }
     ];
 
-    function renderCards() {
+    function renderLoans() {
       const container = document.getElementById("loanCards");
       container.innerHTML = "";
+
       const type = document.getElementById("userType").value;
       const keyword = document.getElementById("search").value.toLowerCase();
 
@@ -208,11 +199,31 @@
       });
     }
 
-    document.getElementById("userType").addEventListener("change", renderCards);
-    document.getElementById("search").addEventListener("input", renderCards);
+    // Toggle functionality
+    document.getElementById("loanBtn").addEventListener("click", () => {
+      document.getElementById("loanBtn").classList.add("active");
+      document.getElementById("cardBtn").classList.remove("active");
+      document.getElementById("loanCards").style.display = "block";
+      document.getElementById("loanFilters").style.display = "flex";
+      document.getElementById("creditCards").style.display = "none";
+      renderLoans();
+    });
 
-    renderCards();
-    renderCreditCards();
+    document.getElementById("cardBtn").addEventListener("click", () => {
+      document.getElementById("cardBtn").classList.add("active");
+      document.getElementById("loanBtn").classList.remove("active");
+      document.getElementById("loanCards").style.display = "none";
+      document.getElementById("loanFilters").style.display = "none";
+      document.getElementById("creditCards").style.display = "block";
+      renderCreditCards();
+    });
+
+    // Event listeners for filters
+    document.getElementById("userType").addEventListener("change", renderLoans);
+    document.getElementById("search").addEventListener("input", renderLoans);
+
+    // Initial render
+    renderLoans();
   </script>
 </body>
 </html>
