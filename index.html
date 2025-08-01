@@ -1,10 +1,14 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2112428082946902"
-     crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EasyLoanNow</title>
+  <meta name="description" content="Compare trusted instant loan providers and free credit card offers. Apply online with no agents and no hidden fees. EasyLoanNow is your one-stop platform for financial assistance." />
+  <meta name="keywords" content="instant loan, credit card, online loan, salaried loan, student loan, easy loan, KreditBee, mPokket, OLYV, free credit cards" />
+  <meta name="author" content="EasyLoanNow" />
+  <meta name="robots" content="index, follow" />
+  <title>EasyLoanNow – Compare & Apply for Loans and Credit Cards</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2112428082946902" crossorigin="anonymous"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -45,10 +49,17 @@
       color: #fff;
       text-decoration: none;
       border-radius: 5px;
+      cursor: pointer;
     }
     .section-title {
       margin-top: 40px;
       font-size: 24px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0b3d91;
+      color: white;
     }
   </style>
 </head>
@@ -56,6 +67,7 @@
   <header>
     <h1>EasyLoanNow</h1>
   </header>
+
   <div class="container">
     <div class="filters">
       <select id="userType">
@@ -65,74 +77,58 @@
         <option value="Student">Student</option>
       </select>
       <input type="text" id="search" placeholder="Search by name..." />
-    </div><div id="loanCards"></div>
+    </div>
 
-<h2 class="section-title">Credit Cards</h2>
-<div id="creditCards"></div>
+    <div id="loanCards"></div>
 
-  </div>  <script>
+    <h2 class="section-title">Credit Cards</h2>
+    <div id="creditCards"></div>
+
+    <div class="card" style="text-align: center;">
+      <h3>Need Help Choosing?</h3>
+      <p>If you're a <strong>student</strong>, go for <strong>mPokket</strong> or <strong>KreditBee</strong>.<br>
+         Salaried professionals can try <strong>OLYV</strong> for higher limits.<br>
+         For Credit Cards, <strong>Indus Easy</strong> is great for airport access; <strong>RBL ShopRite</strong> is best for shopping & movies!</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 EasyLoanNow. All rights reserved.
+    <p style="margin-top: 10px;">Looking for instant personal loans or credit cards? Compare trusted offers above and apply directly. No agents. No hidden charges.</p>
+  </footer>
+
+  <script>
     const loanData = [
       {
         name: "KreditBee",
         image: "assets/kreditbee.png",
         eligibility: ["Salaried", "Self-Employed"],
-        description: `KreditBee is an online personal loan app trusted by over 70 million Indians. Get a quick personal loan at attractive interest rates, directly in your bank account.<br><br>
-        ● Online personal loans from ₹6,000 to ₹10,00,000<br>
-        ● Interest rates - 12% to 28.5% p.a.<br>
-        ● Tenures - 6 to 60 months<br>
-        ● APR range - 17% to 50%<br>
-        ● Low transaction fees<br>
-        ● Quick loans and easy EMIs<br><br>
-        <strong>Our Lending Partners:</strong><br>
-        Krazybee Services Pvt. Ltd<br>
-        Incred Financial Services Ltd<br>
-        Vivriti Capital Pvt. Ltd<br>
-        Northern Arc Capital Ltd<br>
-        MAS Financial Services Ltd<br>
-        Cholamandalam Investment and Finance Company Ltd<br>
-        PayU Finance India Pvt. Ltd<br>
-        Poonawalla Fincorp Ltd<br>
-        Piramal Finance Ltd.<br>
-        Kisetsu Saison Finance (India) Pvt. Ltd<br>
-        Mirae Asset Financial Services (India) Pvt. Ltd<br>
-        Tata Capital Ltd<br>
-        Oxyzo Financial Services Ltd` ,
+        description: `KreditBee is an online personal loan app trusted by over 70 million Indians. Get a quick personal loan at attractive interest rates.<br><br>
+        ● Loans from ₹6,000 to ₹10,00,000<br>
+        ● Interest: 12% to 28.5% p.a.<br>
+        ● Tenure: 6 to 60 months<br>
+        ● Lending Partners: Tata Capital, Poonawalla Fincorp, PayU Finance & more`,
         link: "https://www.kreditbee.in/dl?kb=referrer&id=DHARRP0Z9"
       },
       {
         name: "mPokket",
         image: "assets/mpokket.png",
         eligibility: ["Salaried", "Student"],
-        description: `mPokket offers instant personal loans up to ₹30,000. <br><br>
-        ✔ Students – Must be above 18 & have valid college ID<br>
-        ✔ Salaried – Minimum ₹9,000 take-home salary via bank/cheque<br><br>
-        <strong>Documents Required:</strong><br>
-        ✔ College ID card for Students<br>
-        ✔ Last 3 months Bank Statement, Salary Slip/Joining Letter for Salaried<br>
-        ✔ Aadhaar Card, Driving license, Voter ID<br>
-        ✔ PAN Card<br>
-        ✔ KYC Details` ,
+        description: `mPokket offers instant personal loans up to ₹30,000.<br><br>
+        ✔ Students – College ID needed<br>
+        ✔ Salaried – Salary above ₹9,000<br>
+        ✔ Aadhaar, PAN, Bank Statement required`,
         link: "https://click.mpkt.to/4ZwB/pnv9b35v"
       },
       {
         name: "OLYV",
         image: "assets/olyv.png",
         eligibility: ["Salaried", "Self-Employed"],
-        description: `Instant Loans, Credit Health Insights, Digital Gold Savings, and Exclusive Subscription Services.<br><br>
-        → Instant Personal Loans up to ₹5 lakh<br>
-        → Trusted by ~3 Cr Indians<br>
-        → RBI registered lenders<br>
-        → 100% digital loan application<br>
-        → Tenure: 2 to 24 months<br>
-        → Interest starting at 1.5% per month<br>
-        → APR range – 30 to 90%<br><br>
-        <strong>Lending Partners:</strong><br>
-        Upmove Capital Pvt. Ltd<br>
-        Vivriti Capital Pvt. Ltd<br>
-        Northern Arc Capital Ltd<br>
-        Incred Financial Services Ltd<br>
-        PayU Finance India Pvt. Ltd<br>
-        Poonawalla Fincorp`,
+        description: `OLYV provides Instant Loans, Credit Health Insights, and more.<br><br>
+        → Loans up to ₹5 lakh<br>
+        → 100% digital, low interest<br>
+        → Trusted by 3 Cr+ users<br>
+        → Lending Partners: Vivriti, PayU, Poonawalla, InCred`,
         link: "https://smartcoin.page.link/nTcmvHMWRj4v2tiz5"
       }
     ];
@@ -140,22 +136,30 @@
     const creditCardData = [
       {
         name: "Indus Easy Credit Card",
-        description: `💳 Earn attractive reward points & cashback<br>
+        description: `💳 Attractive reward points & cashback<br>
         🔁 Reward points never expire<br>
         🆓 Lifetime free card<br>
-        🛫 Complimentary Airport Lounge Access`,
+        🛫 Free Airport Lounge Access`,
         link: "https://t.co/YUO2qR7oPB"
       },
       {
         name: "RBL ShopRite Credit Card",
-        description: `✔️ Lifetime free credit card<br>
-        ✔️ Welcome Benefit of 2,000 Reward points<br>
-        ✔️ Fuel surcharge waiver up to ₹100/month<br>
-        ✔️ 20X reward points on grocery<br>
-        ✔️ 10% off on BookMyShow (up to ₹100)` ,
+        description: `✔️ Lifetime free<br>
+        ✔️ 2,000 welcome reward points<br>
+        ✔️ Fuel surcharge waiver<br>
+        ✔️ 20X points on grocery<br>
+        ✔️ 10% off on BookMyShow`,
         link: "https://t.co/MW4Lk3cc1v"
       }
     ];
+
+    function toggleDescription(index, type) {
+      const desc = document.getElementById(`${type}-desc-${index}`);
+      const btn = document.getElementById(`${type}-btn-${index}`);
+      const isHidden = desc.style.display === "none" || !desc.style.display;
+      desc.style.display = isHidden ? "block" : "none";
+      btn.innerText = isHidden ? "Hide Details" : "Show Details";
+    }
 
     function renderCards() {
       const container = document.getElementById("loanCards");
@@ -169,13 +173,16 @@
         return matchesType && matchesKeyword;
       });
 
-      filtered.forEach(card => {
+      filtered.forEach((card, index) => {
         container.innerHTML += `
           <div class="card">
             <h3>${card.name}</h3>
             <img src="${card.image}" alt="${card.name}" />
-            <p>${card.description}</p>
-            <a class="apply-button" href="${card.link}" target="_blank">Apply Now</a>
+            <button class="apply-button" onclick="toggleDescription(${index}, 'loan')" id="loan-btn-${index}">Show Details</button>
+            <div id="loan-desc-${index}" style="display: none;">
+              <p>${card.description}</p>
+              <a class="apply-button" href="${card.link}" target="_blank">Apply Now</a>
+            </div>
           </div>`;
       });
     }
@@ -183,12 +190,15 @@
     function renderCreditCards() {
       const container = document.getElementById("creditCards");
       container.innerHTML = "";
-      creditCardData.forEach(card => {
+      creditCardData.forEach((card, index) => {
         container.innerHTML += `
           <div class="card">
             <h3>${card.name}</h3>
-            <p>${card.description}</p>
-            <a class="apply-button" href="${card.link}" target="_blank">Apply Now</a>
+            <button class="apply-button" onclick="toggleDescription(${index}, 'credit')" id="credit-btn-${index}">Show Details</button>
+            <div id="credit-desc-${index}" style="display: none;">
+              <p>${card.description}</p>
+              <a class="apply-button" href="${card.link}" target="_blank">Apply Now</a>
+            </div>
           </div>`;
       });
     }
@@ -198,5 +208,6 @@
 
     renderCards();
     renderCreditCards();
-  </script></body>
+  </script>
+</body>
 </html>
