@@ -7,7 +7,14 @@
   <meta name="description" content="Compare and apply for instant personal loans and lifetime free credit cards. Fast approvals, trusted lenders, flexible terms.">
   <meta name="keywords" content="loan, personal loan, instant loan, credit card, free credit card, online loan app, EasyLoanNow">
   <meta name="author" content="EasyLoanNow">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <!-- If using .ico: <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
+
+  <!-- Google Ads (optional if using monetization) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2112428082946902" crossorigin="anonymous"></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,20 +22,39 @@
       padding: 0;
       background: #f5f5f5;
     }
+
     header {
       background: #0b3d91;
       color: #fff;
       padding: 20px;
       text-align: center;
     }
+
+    .logo {
+      width: 60px;
+      height: auto;
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      display: inline-block;
+      font-size: 28px;
+      vertical-align: middle;
+      margin: 0;
+    }
+
     .container {
       padding: 20px;
     }
+
     .toggle-buttons {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
     }
+
     .toggle-buttons button {
       padding: 10px 20px;
       margin: 0 10px;
@@ -38,20 +64,24 @@
       cursor: pointer;
       font-weight: bold;
     }
+
     .toggle-buttons button.active {
       background-color: #0b3d91;
       color: white;
     }
+
     .filters {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 20px;
     }
+
     .filters select, .filters input {
       padding: 8px;
       font-size: 16px;
     }
+
     .card {
       background: #fff;
       border-radius: 10px;
@@ -59,9 +89,13 @@
       margin: 10px 0;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+
     .card img {
       max-width: 150px;
+      display: block;
+      margin-bottom: 10px;
     }
+
     .apply-button {
       display: inline-block;
       margin-top: 10px;
@@ -71,6 +105,7 @@
       text-decoration: none;
       border-radius: 5px;
     }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -80,12 +115,13 @@
   </style>
 </head>
 <body>
+
   <header>
+    <img src="assets/logo.png" alt="EasyLoanNow Logo" class="logo" />
     <h1>EasyLoanNow</h1>
   </header>
 
   <div class="container">
-
     <div class="toggle-buttons">
       <button id="loanBtn" class="active">Loans</button>
       <button id="cardBtn">Credit Cards</button>
@@ -107,7 +143,6 @@
     <footer>
       &copy; 2025 EasyLoanNow. All rights reserved.
     </footer>
-
   </div>
 
   <script>
@@ -152,11 +187,13 @@
     const creditCardData = [
       {
         name: "Indus Easy Credit Card",
+        image: "assets/indus_card.png",
         description: `💳 Earn attractive reward points & cashback...`,
         link: "https://t.co/YUO2qR7oPB"
       },
       {
         name: "RBL ShopRite Credit Card",
+        image: "assets/rbl_card.png",
         description: `✔️ Lifetime free credit card...`,
         link: "https://t.co/MW4Lk3cc1v"
       }
@@ -179,7 +216,7 @@
         container.innerHTML += `
           <div class="card">
             <h3>${card.name}</h3>
-            <img src="${card.image}" alt="${card.name}" />
+            <img src="${card.image}" alt="${card.name}" onerror="this.src='assets/default.png'" />
             <p>${card.description}</p>
             <a class="apply-button" href="${card.link}" target="_blank">Apply Now</a>
           </div>`;
@@ -193,13 +230,13 @@
         container.innerHTML += `
           <div class="card">
             <h3>${card.name}</h3>
+            <img src="${card.image}" alt="${card.name}" onerror="this.src='assets/default.png'" />
             <p>${card.description}</p>
             <a class="apply-button" href="${card.link}" target="_blank">Apply Now</a>
           </div>`;
       });
     }
 
-    // Toggle functionality
     document.getElementById("loanBtn").addEventListener("click", () => {
       document.getElementById("loanBtn").classList.add("active");
       document.getElementById("cardBtn").classList.remove("active");
@@ -218,12 +255,11 @@
       renderCreditCards();
     });
 
-    // Event listeners for filters
     document.getElementById("userType").addEventListener("change", renderLoans);
     document.getElementById("search").addEventListener("input", renderLoans);
 
-    // Initial render
     renderLoans();
   </script>
+
 </body>
-</html>
+  </html>
